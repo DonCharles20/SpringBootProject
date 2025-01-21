@@ -31,7 +31,7 @@ public class Product {
     private Date releaseDate;
     private boolean productAvailable;
 
-    private String imagename;
+    private String imageName;
 
     @Lob
     @Column(name = "image_data", columnDefinition = "BYTEA")

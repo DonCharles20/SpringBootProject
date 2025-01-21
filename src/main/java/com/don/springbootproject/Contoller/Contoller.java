@@ -65,8 +65,7 @@ public class Contoller {
     @GetMapping("/product/{productId}/image")
     public ResponseEntity<byte[]>getImageByProductId(@PathVariable int productId){
         Product product=service.getProductById(productId);
-        //Long imageFile = product.getImageData();
-        byte[] imageFile= product.getImageData();
+        byte[] imageFile = product.getImageData();
     
         return ResponseEntity.ok()
             .contentType(MediaType.valueOf(product.getImageType()))
@@ -112,6 +111,8 @@ public class Contoller {
 
         return new ResponseEntity<>(products,HttpStatus.OK);
     }
+
+    
 
     
 }

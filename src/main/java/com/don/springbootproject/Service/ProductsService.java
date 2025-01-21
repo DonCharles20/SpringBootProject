@@ -26,17 +26,16 @@ public class ProductsService {
 
 
     public Product addProduct(Product product, MultipartFile imageFile) throws IOException {
-        byte[] imageBytes = imageFile.getBytes();
-        System.out.println("Image data size: " + imageBytes.length);  // Log the size to verify it's a byte array
-        product.setImagename(imageFile.getOriginalFilename());
+
+        product.setImageName(imageFile.getOriginalFilename());
         product.setImageType(imageFile.getContentType());
-        product.setImageData(imageBytes);  // Set the actual image data as byte[]
+        product.setImageData(imageFile.getBytes());
         
         return productsRepository.save(product);
     }
     
     public Product updateProduct(int id, Product product, MultipartFile imageFile) throws IOException {
-        product.setImagename(imageFile.getOriginalFilename());
+        product.setImageName(imageFile.getOriginalFilename());
         product.setImageType(imageFile.getContentType());
         product.setImageData(imageFile.getBytes());
 
